@@ -24,3 +24,5 @@ Files
 Purpose
 
 This repository is created for practice and learning JavaScript fundamentals.
+## Output Screenshot
+![output](screenshots/output.png)
