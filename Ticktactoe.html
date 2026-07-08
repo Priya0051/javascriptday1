@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Tic Tac Toe</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+.tictac{width:30%;margin:auto;text-align:center}
+.row{display:flex;justify-content:center}
+.col{height:80px;width:80px;border:2px solid black;font-size:40px;text-align:center;line-height:80px;margin:2px;cursor:pointer}
+button{padding:10px;font-size:18px}
+</style>
+</head>
+<body>
+<div class="tictac">
+<h2>Tic Tac Toe Game</h2>
+<h3>Turn: <span id="turn">X</span></h3>
+<div class="row">
+<div onclick="playerClick(this)" id="0" class="col"></div>
+<div onclick="playerClick(this)" id="1" class="col"></div>
+<div onclick="playerClick(this)" id="2" class="col"></div>
+</div>
+<div class="row">
+<div onclick="playerClick(this)" id="3" class="col"></div>
+<div onclick="playerClick(this)" id="4" class="col"></div>
+<div onclick="playerClick(this)" id="5" class="col"></div>
+</div>
+<div class="row">
+<div onclick="playerClick(this)" id="6" class="col"></div>
+<div onclick="playerClick(this)" id="7" class="col"></div>
+<div onclick="playerClick(this)" id="8" class="col"></div>
+</div>
+<h3 id="result"></h3>
+<h3>X Score:<span id="xScore">0</span> O Score:<span id="oScore">0</span></h3>
+<button onclick="restartGame()">Restart</button>
+</div>
+<script>
+    var currentPlayer="X";
+    var gameData=[null,null,null,null,null,null,null,null,null];
+    var xScore=0,oScore=0;
+
+function playerClick(el){
+var id=el.id;
+if(gameData[id]!=null)return;
+
+gameData[id]=currentPlayer;
+$(el).html(currentPlayer);
+
+if(checkWinner()){
+$("#result").text(currentPlayer+" Wins 🎉");
+currentPlayer=="X"?xScore++:oScore++;
+$("#xScore").text(xScore);
+$("#oScore").text(oScore);
+$(".col").attr("onclick","");
+return;
+}
+
+if(gameData.every(x=>x!=null)){
+$("#result").text("Draw 🤝");
+return;
+}
+
+currentPlayer=currentPlayer=="X"?"O":"X";
+$("#turn").text(currentPlayer);
+}
+
+function checkWinner(){
+var p=[
+[0,1,2],[3,4,5],[6,7,8],
+[0,3,6],[1,4,7],[2,5,8],
+[0,4,8],[2,4,6]
+];
+
+for(var i=0;i<p.length;i++){
+var a=p[i][0],b=p[i][1],c=p[i][2];
+
+if(gameData[a]!=null&&gameData[a]==gameData[b]&&gameData[b]==gameData[c])
+return true;
+}
+return false;
+}
+
+function restartGame(){
+gameData=[null,null,null,null,null,null,null,null,null];
+$(".col").html("");
+$("#result").text("");
+currentPlayer="X";
+$("#turn").text("X");
+$(".col").attr("onclick","playerClick(this)");
+}
+
+</script>
+</body>
+</html>

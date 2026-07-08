@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Login</title>
+<script src="c:\Users\ppy13\OneDrive\Documents\jquery-4.0.0.min.js"></script>
+
+<style>
+
+form{
+    width:350px;
+    margin:auto;
+    margin-top:100px;
+    font-size:20px;
+}
+
+.btn{
+    width:100px;
+    background-color:blue;
+    color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<form onsubmit="return validate()">
+
+<table>
+
+<tr>
+<td>Username</td>
+<td><input type="text" id="user"></td>
+</tr>
+
+<tr>
+<td>Password</td>
+<td><input type="password" id="pass"></td>
+</tr>
+
+<tr>
+<td>Age</td>
+<td><input type="number" id="age"></td>
+</tr>
+
+<tr>
+<td>Course</td>
+<td><input type="text" id="course"></td>
+</tr>
+
+<tr>
+<td colspan="2">
+<input type="submit" value="Login" class="btn">
+</td>
+</tr>
+
+</table>
+
+</form>
+
+<h3 id="msg"></h3>
+
+<script>
+
+function validate(){
+
+    let n1 = document.getElementById("user").value;
+    let n2 = document.getElementById("pass").value;
+    let age = document.getElementById("age").value;
+    let course = document.getElementById("course").value;
+
+    let m="";
+
+    if(n1==""){
+        m="Enter Username";
+    }
+
+    else if(n2==""){
+        m="Enter Password";
+    }
+
+    else if(n2[0] != n2[0].toUpperCase()){
+        m="First character of Password must be Capital";
+    }
+
+    else if(age < 18){
+        m="Age must be above 18";
+    }
+
+    else if(course != "BCA"){
+        m="Course must be BCA";
+    }
+
+    else{
+        m="Login Successful";
+    }
+
+    document.getElementById("msg").innerHTML = m;
+
+    return false;
+}
+
+</script>
+
+</body>
+</html>

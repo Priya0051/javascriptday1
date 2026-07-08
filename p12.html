@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Tables</title>
+</head>
+
+<body>
+
+<script>
+
+const arr = [2,3,4,5,6,7,8,9];
+
+arr.forEach(function(item){
+
+    table(item);
+
+});
+
+function table(num){
+
+    document.write("<br><h3>Table of "+num+"</h3>");
+
+    for(let index=1; index<=10; index++){
+
+        let res = num * index;
+
+        document.write(num+" × "+index+" = "+res+"<br>");
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

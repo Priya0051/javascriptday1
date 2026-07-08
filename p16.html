@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Animate</title>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+.cls{
+    height:300px;
+    width:300px;
+    background:black;
+    position:relative;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="cls"></div>
+
+<br>
+
+<button id="ani">Animate</button>
+<button id="st">Stop</button>
+
+<script>
+
+$(document).ready(function(){
+
+    $("#ani").click(function(){
+
+        $(".cls").animate({
+            left:"300px"
+        },2000);
+
+    });
+
+    $("#st").click(function(){
+
+        $(".cls").stop();
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>

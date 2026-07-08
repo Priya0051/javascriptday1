@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Withdrawal Checker</title>
+    <style>
+        body{
+            font-family: Arial;
+            background:#f2f2f2;
+        }
+
+        .box{
+            width:400px;
+            margin:50px auto;
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 0 10px gray;
+        }
+
+        h2{
+            text-align:center;
+        }
+
+        input,select,button{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            border-radius:5px;
+            border:1px solid #ccc;
+        }
+
+        button{
+            background:#1976d2;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        #result{
+            padding:15px;
+            background:#d8f3dc;
+            margin-top:10px;
+            display:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h2>Bank Withdrawal Checker</h2>
+
+<label>Current Balance (₹)</label>
+<input type="number" id="balance" >
+
+<label>Withdrawal Amount (₹)</label>
+<input type="number" id="amount">
+
+<label>Account Type</label>
+<select id="type">
+    <option>Premium</option>
+    <option>Normal</option>
+</select>
+
+<button onclick="checkWithdrawal()">Check Withdrawal</button>
+
+<div id="result"></div>
+
+</div>
+
+
+<script>
+
+function checkWithdrawal(){
+
+let balance = Number(document.getElementById("balance").value);
+let amount = Number(document.getElementById("amount").value);
+let type = document.getElementById("type").value;
+
+let result = document.getElementById("result");
+
+
+if(amount <= balance){
+
+    let remaining = balance - amount;
+
+    if(type=="Premium" || amount<=5000){
+
+    result.style.display="block";
+    result.innerHTML =
+    "✅ Withdraw ₹"+amount+
+    ". Balance: ₹"+remaining;
+
+    }
+
+}
+else{
+
+result.style.display="block";
+result.innerHTML="❌ Insufficient Balance";
+
+}
+
+}
+
+</script>
+
+
+</body>
+</html>

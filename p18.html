@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="c:\Users\ppy13\OneDrive\Documents\jquery-4.0.0.min.js"></script>
+    <style>
+        .cls{
+            height: 300px;
+            width: 300px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div class='cls'></div>
+
+    <button id='chain'>start chain of method</button>
+    <button id='ab'>add borders</button>
+</body>
+<script>
+    $(document).ready(function(){
+        $('#chain').click(function(){
+            $('.cls').hide(2000).show(5000).slideup(2000).slidedowm(5000)
+      
+        });
+        $('#ab').click(function(){
+            $('.cls').css({'border':"10px solid blue"})
+        });
+        
+    });
+</script>
+</html>

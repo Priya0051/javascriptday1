@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Quiz</title>
+</head>
+
+<body>
+
+<h1>JavaScript Quiz</h1>
+
+<h2 id="question"></h2>
+
+<div id="options"></div>
+
+<h3 id="score"></h3>
+
+
+<script>
+
+const questions = [
+    {
+        question: "JavaScript kis type ki language hai?",
+        options: [
+            "Programming Language",
+            "Database",
+            "Operating System",
+            "Browser"
+        ],
+        answer: "Programming Language"
+    },
+
+    {
+        question: "Variable banane ke liye kaunsa keyword use hota hai?",
+        options: [
+            "let",
+            "html",
+            "css",
+            "body"
+        ],
+        answer: "let"
+    },
+
+    {
+        question: "Console me output dikhane ke liye kya use hota hai?",
+        options: [
+            "console.log()",
+            "print()",
+            "display()",
+            "show()"
+        ],
+        answer: "console.log()"
+    }
+];
+
+
+let currentQuestion = 0;
+let score = 0;
+
+
+let questionBox = document.getElementById("question");
+let optionsBox = document.getElementById("options");
+let scoreBox = document.getElementById("score");
+
+
+function loadQuestion() {
+
+    let question = questions[currentQuestion];
+
+    questionBox.innerHTML = question.question;
+
+    optionsBox.innerHTML = "";
+
+
+    question.options.forEach(function(option){
+
+        let button = document.createElement("button");
+
+        button.innerHTML = option;
+
+        button.style.display = "block";
+        button.style.margin = "10px";
+
+
+        button.onclick = function(){
+
+            if(option === question.answer){
+                score++;
+            }
+
+
+            currentQuestion++;
+
+
+            if(currentQuestion < questions.length){
+                loadQuestion();
+            }
+            else{
+                showResult();
+            }
+
+        };
+
+
+        optionsBox.appendChild(button);
+
+    });
+
+}
+
+
+
+function showResult(){
+
+    questionBox.innerHTML = "Quiz Completed ";
+
+    optionsBox.innerHTML = "";
+
+    scoreBox.innerHTML =
+    "Your Score: " + score + "/" + questions.length;
+
+}
+
+
+loadQuestion();
+
+
+</script>
+
+</body>
+</html>

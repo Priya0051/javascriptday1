@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="c:\Users\ppy13\OneDrive\Documents\jquery-4.0.0.min.js"></script>
+</head>
+<body>
+    <div id="sw">
+        00 : 00 : 00
+    </div>
+    <ol id="laps"></ol>
+    <button id="st">START</button>
+    <button id="sp">STOP</button>
+    <button id="rt">RESET</button>
+    <button id="lp">LAP</button>
+</body>    
+<script>
+        let hh=0;
+        let mm=0
+        let ss=0;
+    $(document).ready(function(){
+        
+        $('#st').click(function(){
+            //alert("started");
+           id= setInterval('updatesw()',1000);
+
+        });
+        $('#sp').click(function(){
+           // alert("stopped");
+           clearInterval(id); 
+        });
+        $('#rt').click(function(){
+           // alert("reset");
+           hh=0;
+           mm=0;
+           ss=0;
+           clearInterval(id);
+           $('#sw').text(hh+" : "+mm+" : "+ss);
+           $('#laps').children('li').remove();
+        });
+         $('#lp').click(function(){
+           //alert("new lap");
+           $('#laps').append('<li>Lap '+hh+' : '+mm+' : '+ss+'</li>')
+           clearInterval(id); 
+        });
+    });
+    function updatesw(){
+        ss++;
+        if(ss>=60){
+            mm++;
+            ss=0;
+        }
+        if(mm>=60){
+            hh++;
+            mm=0;
+            ss=0;
+        }
+        $('#sw').text(hh+" : "+mm+" : "+ss);
+ }
+</script>
+</html>

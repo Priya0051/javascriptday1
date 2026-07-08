@@ -1,0 +1,59 @@
+//completed
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="c:\Users\ppy13\OneDrive\Documents\jquery-4.0.0.min.js"></script>
+<body>
+    <style>
+        .cls{
+            height: 500px;
+            width: 500px;
+            background: #0dd7e2;
+        }
+    </style>
+    <div class="cls"></div>
+    <button id="s">show</button>
+    <button id="h">hide</button>
+    <button id="t">toggle</button>
+    <button id="su">slideup</button>
+    <button id="sd">slidedown</button>
+    <button id="st">slidetoggle</button>
+    <button id="fi">Fadein</button>
+    <button id="fo">fadeout</button>
+    <script>
+        $(document).ready(function(){
+            $('#h').click(function(){
+                $('.cls').hide(10000);
+            })
+             $('#s').click(function(){
+                $('.cls').show();
+            })
+             $('#t').click(function(){
+                $('.cls').toggle(2000);
+            })
+             $('#su').click(function(){
+                $('.cls').slideUp();
+            })
+             $('#sd').click(function(){
+                $('.cls').slideDown();
+            })
+             $('#st').click(function(){
+                $('.cls').slideToggle();
+            })
+             $('#fi').click(function(){
+                $('.cls').fadeIn();
+            })
+             $('#fo').click(function(){
+                $('.cls').fadeOut();
+            })
+            
+        });
+    </script>
+
+    
+</body>
+</html>

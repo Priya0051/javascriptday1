@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Result Form</title>
+
+<script src="C:\Users\ppy13\Desktop\javascript\p11.html"></script>
+</head>
+
+<body>
+
+<h2>Student Result Declaration Form</h2>
+
+<div class="container">
+    
+
+Student Name :
+<input type="text" id="name"><br><br>
+
+Student ID :
+<input type="text" id="ID"><br><br>
+
+Digital Marketing :
+<input type="number" id="M1"><br><br>
+
+Python :
+<input type="number" id="M2"><br><br>
+
+Java :
+<input type="number" id="M3"><br><br>
+
+Web Development :
+<input type="number" id="M4"><br><br>
+
+<button onclick="calculateResult()">Generate Result</button>
+
+</div>
+
+<br>
+
+<div class="result">
+
+<table border="1">
+
+<tr>
+<th colspan="2">Result Summary</th>
+</tr>
+
+<tr>
+<td>Student Name</td>
+<td id="rname"></td>
+</tr>
+
+<tr>
+<td>Student ID</td>
+<td id="rid"></td>
+</tr>
+
+<tr>
+<td>Total Marks</td>
+<td id="total"></td>
+</tr>
+
+<tr>
+<td>Percentage</td>
+<td id="percentage"></td>
+</tr>
+
+<tr>
+<td>Division</td>
+<td id="division"></td>
+</tr>
+
+<tr>
+<td>Result</td>
+<td id="result"></td>
+</tr>
+
+</table>
+
+</div>
+
+<script>
+
+function calculateResult()
+{
+
+let name=document.getElementById("name").value;
+let ID=document.getElementById("ID").value;
+
+let M1=Number(document.getElementById("M1").value);
+let M2=Number(document.getElementById("M2").value);
+let M3=Number(document.getElementById("M3").value);
+let M4=Number(document.getElementById("M4").value);
+
+let total=M1+M2+M3+M4;
+
+let percentage=total/4;
+
+let division="";
+let result="";
+
+if(M1<33 || M2<33 || M3<33 || M4<33)
+    {
+        result = "Fail";
+        division = "No Division";
+    }
+    else
+    {
+        result = "Pass";
+
+        if(percentage>=60)
+            division="First Division";
+        else if(percentage>=45)
+            division="Second Division";
+        else
+            division="Third Division";
+    }
+
+    document.getElementById("rname").innerHTML = name;
+    document.getElementById("rid").innerHTML = ID;
+    document.getElementById("total").innerHTML = total;
+    document.getElementById("percentage").innerHTML = percentage + "%";
+    document.getElementById("division").innerHTML = division;
+    document.getElementById("result").innerHTML = result;
+}
+</script>
+</body>
+</html>

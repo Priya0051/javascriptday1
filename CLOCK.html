@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="c:\Users\ppy13\OneDrive\Documents\jquery-4.0.0.min.js"></script>
+</head>
+<body>
+    <div id='cl'></div>
+    <table border="1">
+    <tr>
+        <td colspan="3">CLOCK</td>
+    </tr>
+    <tr>
+        <td>Date</td>
+        <td>Month</td>
+        <td>Year</td>
+    </tr>
+    <tr>
+        <td id="day"></td>
+        <td id="mon"></td>
+        <td id="yr"></td>
+    </tr>
+    <tr>
+        <td>Hours</td>
+        <td>Min</td>
+        <td>Sec</td>
+    </tr>
+    <tr>
+        <td id="hr"></td>
+        <td id="m"></td>
+        <td id="s"></td>
+    </tr>
+    </table>
+</body>
+<script>
+    $(document).ready(function(){
+        setInterval(clockshow,1000);
+    });
+    function clockshow(){
+        var cu_time = new Date();
+        var date = cu_time.getDate();
+        var month = cu_time.getMonth();
+        var year = cu_time.getFullYear();
+        var hour = cu_time.getHours();
+        var mint = cu_time.getMinutes();
+        var sec = cu_time.getSeconds();
+        $('#day').text(date);
+        $('#mon').text(month);
+        $('#yr').text(year);
+        $('#hr').text(hour);
+        $('#m').text(mint);
+        $('#s').text(sec);
+        console.log("date= "+date+" month= "+month+" year= "+year+" hours= "+hour+" min= "+mint+" sec= "+sec);
+    
+ }
+</script>
+</html>
